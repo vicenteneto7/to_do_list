@@ -16,7 +16,8 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="pt-BR" className={`${inter.variable}`}>
-      <body>
+      <body suppressHydrationWarning={true} // This prevents extensions from causing a server/client mismatch
+      >
         {children}
       </body>
     </html>
