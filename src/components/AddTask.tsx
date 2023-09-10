@@ -1,4 +1,4 @@
-import { cn } from '@/app/lib/utils'
+import { cn } from '@/lib/util'
 import { ReactNode } from 'react'
 
 type AddTaskProps = {
