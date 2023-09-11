@@ -7,6 +7,7 @@ import { Item } from "@/utils";
 export default function Home() {
   const [tasks, setTask] = useState<Item[]>([]);
   const [input, setInput] = useState<string>("");
+  const [isOpen, setOpen] = useState<boolean>(false);
 
   const addNewTask = () => {
     const newList: Item = { id: uuid(), task: input, finished: false };
@@ -27,11 +28,11 @@ export default function Home() {
 
   return (
     <div className="w-full h-full flex flex-col items-center">
-      <div className="flex justify-center items-center gap-5  w-full h-auto mt-10 sm:pb-4 pb-4">
+      <div className="hidden sm:flex justify-center items-center gap-5  w-full h-auto mt-10 sm:pb-4 pb-4">
         <input
           onChange={(e) => setInput(e.currentTarget.value)}
           type="text"
-          className="sm:pl-9 px-5 min-w-[90%] sm:min-w-[20%] sm:max-w-[100%] max-w-[95%] sm:w-96 outline-none mx-auto sm:mx-0 h-14 bg-slate-700 shadow-3xl rounded-[16px]"
+          className="sm:pl-9 px-5 min-w-[90%] sm:min-w-[20%] hidden sm:inline-block sm:max-w-[100%] max-w-[95%] sm:w-96 outline-none mx-auto sm:mx-0 h-14 bg-slate-700 shadow-3xl rounded-[16px]"
           style={{ color: "rgba(148, 173, 207, 1)" }}
           autoComplete="off"
           placeholder="O que tenho que fazer..."
@@ -90,14 +91,58 @@ export default function Home() {
           </div>
         ))}
       </div>
-      <Image
-        src="/images/add.png"
-        height={60}
-        width={60}
-        alt="add-icon"
-        className="cursor-pointer flex sm:hidden fixed right-[8%] bottom-[6%]"
-        unoptimized
-      />
+
+      <button
+        onClick={() => setOpen((prev) => !prev)}
+        className="bg-slate-700 cursor-pointer flex sm:hidden fixed right-[8%] bottom-[6%]"
+      >
+        {!isOpen ? (
+          <Image
+            src="/images/add.png"
+            height={60}
+            width={60}
+            alt="add-icon"
+            className="cursor-pointer transition-all flex sm:hidden fixed right-[8%] bottom-[6%]"
+            unoptimized
+          />
+        ) : (
+          <Image
+            src="/images/exit.png"
+            height={60}
+            width={60}
+            alt="add-icon"
+            className="cursor-pointer transition-all shadow-4xl drop-shadow-lg flex sm:hidden fixed right-[8%] bottom-[6%]"
+            unoptimized
+          />
+        )}
+      </button>
+      {isOpen && (
+        <div className="w-full h-full flex sm:hidden justify-center items-center">
+          <div className="bg-slate-700 transition-all fixed top-[33%] items-center drop-shadow-lg w-[93%] h-56 flex flex-col justify-evenly sm:hidden rounded-[16px] shadow-4xl">
+            <input
+              onChange={(e) => setInput(e.currentTarget.value)}
+              type="text"
+              className="pl-6 px-3 min-w-[90%] max-w-[95%] block w-96 outline-none mx-auto h-14 bg-slate-700 shadow-3xl rounded-[16px]"
+              style={{ color: "rgba(148, 173, 207, 1)" }}
+              autoComplete="off"
+              placeholder="O que tenho que fazer..."
+            />
+            <button
+              onClick={addNewTask}
+              className="cursor-pointer sm:hidden flex bg-slate-700 shadow-4xl rounded-[16px] drop-shadow-lg text-white h-14 w-[95%] justify-center items-center"
+            >
+              Adicionar
+              <Image
+                src="/images/arrow.png"
+                height={17}
+                width={17}
+                alt=""
+                unoptimized
+              />
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
