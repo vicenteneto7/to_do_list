@@ -15,6 +15,9 @@ const config: Config = {
       },
       dropShadow: {
         'filter': ['drop-shadow(5px 5px 13px rgba(48, 54, 64, 0.90)) drop-shadow(-5px -5px 10px rgba(64, 74, 86, 0.90)) drop-shadow(5px -5px 10px rgba(48, 54, 64, 0.20)) drop-shadow(-5px 5px 10px rgba(48, 54, 64, 0.20))']
+      },
+      maxWidth: {
+        '3.8': '90%'
       }
     },
   },
