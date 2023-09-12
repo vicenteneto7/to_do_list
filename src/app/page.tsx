@@ -159,7 +159,7 @@ export default function Home() {
             />
             <button
               onClick={addNewTask}
-              className="cursor-pointer sm:hidden flex bg-slate-700 transition-colors hover:bg-slate-600 active:bg-slate-500 shadow-4xl rounded-[16px] drop-shadow-lg h-14 w-[95%] justify-center items-center"
+              className="cursor-pointer sm:hidden flex bg-slate-700 transition-colors active:bg-slate-500 shadow-4xl rounded-[16px] drop-shadow-lg h-14 w-[95%] justify-center items-center"
               style={{ color: "#94ADCF" }}
             >
               Adicionar
