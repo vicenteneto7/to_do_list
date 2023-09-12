@@ -3,8 +3,7 @@ import Image from "next/image";
 import { useState } from "react";
 import { v4 as uuid } from "uuid";
 import { Item } from "@/utils";
-import 'animate.css'
-import { Alert } from "@/components/alert";
+import "animate.css";
 import Swal from "sweetalert2";
 
 export default function Home() {
@@ -19,19 +18,19 @@ export default function Home() {
     setTask([...tasks, newList]);
     const Toast = Swal.mixin({
       toast: true,
-      position: 'top-end',
+      position: "top-end",
       showConfirmButton: false,
       timer: 3000,
       timerProgressBar: true,
       didOpen: (toast) => {
-        toast.addEventListener('mouseenter', Swal.stopTimer)
-        toast.addEventListener('mouseleave', Swal.resumeTimer)
-      }
-    })
+        toast.addEventListener("mouseenter", Swal.stopTimer);
+        toast.addEventListener("mouseleave", Swal.resumeTimer);
+      },
+    });
     Toast.fire({
-      icon: 'success',
-      title: 'Tarefa adicionada!'
-    })
+      icon: "success",
+      title: "Tarefa adicionada!",
+    });
   };
 
   const deleteTask = (id: string) => {
@@ -123,7 +122,7 @@ export default function Home() {
 
       <button
         onClick={() => setOpen((prev) => !prev)}
-        className="bg-slate-700 cursor-pointer flex sm:hidden fixed right-[8%] bottom-[6%]"
+        className="bg-slate-700 cursor-pointer rounded-full flex sm:hidden fixed right-[8%] bottom-[6%]"
       >
         {!isOpen ? (
           <Image
@@ -131,7 +130,8 @@ export default function Home() {
             height={60}
             width={60}
             alt="add-icon"
-            className="cursor-pointer transition-all flex sm:hidden fixed right-[8%] bottom-[6%]"
+            className="cursor-pointer flex rounded-full shadow-4xl drop-shadow-lg sm:hidden fixed right-[8%] bottom-[6%]"
+            style={{ backgroundColor: "#38404B" }}
             unoptimized
           />
         ) : (
@@ -140,7 +140,8 @@ export default function Home() {
             height={60}
             width={60}
             alt="add-icon"
-            className="cursor-pointer transition-all shadow-4xl drop-shadow-lg flex sm:hidden fixed right-[8%] bottom-[6%]"
+            className="cursor-pointer flex rounded-full shadow-4xl drop-shadow-lg sm:hidden fixed right-[8%] bottom-[6%]"
+            style={{ backgroundColor: "#38404B" }}
             unoptimized
           />
         )}
@@ -152,14 +153,14 @@ export default function Home() {
               onChange={(e) => setInput(e.currentTarget.value)}
               type="text"
               className="pl-6 px-3 min-w-[90%] max-w-[95%] block w-96 outline-none mx-auto h-14 bg-slate-700 shadow-3xl rounded-[16px]"
-              style={{ color: "rgba(148, 173, 207, 1)" }}
+              style={{ color: "#94ADCF" }}
               autoComplete="off"
               placeholder="O que tenho que fazer..."
             />
-            
             <button
               onClick={addNewTask}
-              className="cursor-pointer sm:hidden flex bg-slate-700 shadow-4xl rounded-[16px] drop-shadow-lg text-white h-14 w-[95%] justify-center items-center"
+              className="cursor-pointer sm:hidden flex bg-slate-700 shadow-4xl rounded-[16px] drop-shadow-lg h-14 w-[95%] justify-center items-center"
+              style={{ color: "#94ADCF"}}
             >
               Adicionar
               <Image
@@ -169,9 +170,8 @@ export default function Home() {
                 alt=""
                 unoptimized
               />
-            </button> 
-            : 
-            
+            </button>
+            :
           </div>
         </div>
       )}
