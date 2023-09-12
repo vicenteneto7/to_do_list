@@ -122,7 +122,7 @@ export default function Home() {
 
       <button
         onClick={() => setOpen((prev) => !prev)}
-        className="bg-slate-700 cursor-pointer rounded-full flex sm:hidden fixed right-12 bottom-14"
+        className="bg-slate-700 cursor-pointer rounded-full flex sm:hidden fixed right-8 bottom-14"
       >
         {!isOpen ? (
           <Image
@@ -130,7 +130,7 @@ export default function Home() {
             height={60}
             width={60}
             alt="add-icon"
-            className="cursor-pointer flex rounded-full shadow-4xl drop-shadow-lg sm:hidden fixed right-12 bottom-14"
+            className="cursor-pointer flex rounded-full shadow-4xl drop-shadow-lg sm:hidden fixed right-8 bottom-14"
             style={{ backgroundColor: "#38404B" }}
             unoptimized
           />
@@ -140,7 +140,7 @@ export default function Home() {
             height={60}
             width={60}
             alt="add-icon"
-            className="cursor-pointer flex rounded-full shadow-4xl drop-shadow-lg sm:hidden fixed right-12 bottom-14"
+            className="cursor-pointer flex rounded-full shadow-4xl drop-shadow-lg sm:hidden fixed right-8 bottom-14"
             style={{ backgroundColor: "#38404B" }}
             unoptimized
           />
@@ -159,7 +159,7 @@ export default function Home() {
             />
             <button
               onClick={addNewTask}
-              className="cursor-pointer sm:hidden flex bg-slate-700 transition-colors active:bg-slate-500 shadow-4xl rounded-[16px] drop-shadow-lg h-14 w-[95%] justify-center items-center"
+              className="cursor-pointer sm:hidden flex outline-none bg-slate-700 transition-colors active:bg-slate-600 shadow-4xl rounded-[16px] drop-shadow-lg h-14 w-[95%] justify-center items-center"
               style={{ color: "#94ADCF" }}
             >
               Adicionar
