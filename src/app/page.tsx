@@ -55,7 +55,7 @@ export default function Home() {
       </div>
       <p
         className="flex sm:hidden text-2xl font-semibold mt-8"
-        style={{ color: "#94ADCF" }}
+        style={{ color: "#94ADCF", display: isOpen ? "none" : "" }}
       >
         Lista de Tarefas
       </p>
