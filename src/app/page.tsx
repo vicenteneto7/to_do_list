@@ -58,7 +58,7 @@ export default function Home() {
         />
         <button
           onClick={addNewTask}
-          className="cursor-pointer hidden sm:flex mx-auto sm:mx-0 bg-slate-700 shadow-4xl rounded-[16px] drop-shadow-lg text-white h-14 w-32 justify-center items-center"
+          className="cursor-pointer hidden sm:flex mx-auto sm:mx-0 bg-slate-700 shadow-4xl transition-colors hover:bg-slate-600 active:bg-slate-500 rounded-[16px] drop-shadow-lg text-white h-14 w-32 justify-center items-center"
         >
           Adicionar
           <Image
@@ -122,7 +122,7 @@ export default function Home() {
 
       <button
         onClick={() => setOpen((prev) => !prev)}
-        className="bg-slate-700 cursor-pointer rounded-full flex sm:hidden fixed right-[8%] bottom-[6%]"
+        className="bg-slate-700 cursor-pointer rounded-full flex sm:hidden fixed right-12 bottom-14"
       >
         {!isOpen ? (
           <Image
@@ -130,7 +130,7 @@ export default function Home() {
             height={60}
             width={60}
             alt="add-icon"
-            className="cursor-pointer flex rounded-full shadow-4xl drop-shadow-lg sm:hidden fixed right-[8%] bottom-[6%]"
+            className="cursor-pointer flex rounded-full shadow-4xl drop-shadow-lg sm:hidden fixed right-12 bottom-14"
             style={{ backgroundColor: "#38404B" }}
             unoptimized
           />
@@ -140,7 +140,7 @@ export default function Home() {
             height={60}
             width={60}
             alt="add-icon"
-            className="cursor-pointer flex rounded-full shadow-4xl drop-shadow-lg sm:hidden fixed right-[8%] bottom-[6%]"
+            className="cursor-pointer flex rounded-full shadow-4xl drop-shadow-lg sm:hidden fixed right-12 bottom-14"
             style={{ backgroundColor: "#38404B" }}
             unoptimized
           />
@@ -148,7 +148,7 @@ export default function Home() {
       </button>
       {isOpen && (
         <div className="w-[100%] h-[100%] flex sm:hidden justify-center items-center">
-          <div className="bg-slate-700 transition-all fixed top-[33%] items-center drop-shadow-lg w-[93%] h-56 flex flex-col justify-evenly sm:hidden rounded-[16px] shadow-4xl">
+          <div className="bg-slate-700 transition-all fixed top-[32%] items-center drop-shadow-lg w-[93%] h-56 flex flex-col justify-evenly sm:hidden rounded-[16px] shadow-4xl">
             <input
               onChange={(e) => setInput(e.currentTarget.value)}
               type="text"
@@ -159,7 +159,7 @@ export default function Home() {
             />
             <button
               onClick={addNewTask}
-              className="cursor-pointer sm:hidden flex bg-slate-700 shadow-4xl rounded-[16px] drop-shadow-lg h-14 w-[95%] justify-center items-center"
+              className="cursor-pointer sm:hidden flex bg-slate-700 transition-colors hover:bg-slate-600 active:bg-slate-500 shadow-4xl rounded-[16px] drop-shadow-lg h-14 w-[95%] justify-center items-center"
               style={{ color: "#94ADCF" }}
             >
               Adicionar
