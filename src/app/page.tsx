@@ -3,6 +3,9 @@ import Image from "next/image";
 import { useState } from "react";
 import { v4 as uuid } from "uuid";
 import { Item } from "@/utils";
+import 'animate.css'
+import { Alert } from "@/components/alert";
+import Swal from "sweetalert2";
 
 export default function Home() {
   const [tasks, setTask] = useState<Item[]>([
@@ -14,6 +17,21 @@ export default function Home() {
   const addNewTask = () => {
     const newList: Item = { id: uuid(), task: input, finished: false };
     setTask([...tasks, newList]);
+    const Toast = Swal.mixin({
+      toast: true,
+      position: 'top-end',
+      showConfirmButton: false,
+      timer: 3000,
+      timerProgressBar: true,
+      didOpen: (toast) => {
+        toast.addEventListener('mouseenter', Swal.stopTimer)
+        toast.addEventListener('mouseleave', Swal.resumeTimer)
+      }
+    })
+    Toast.fire({
+      icon: 'success',
+      title: 'Tarefa adicionada!'
+    })
   };
 
   const deleteTask = (id: string) => {
