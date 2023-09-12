@@ -6,7 +6,7 @@ import { Item } from "@/utils";
 
 export default function Home() {
   const [tasks, setTask] = useState<Item[]>([
-    { id: uuid(), task: "Crie a sua tarefa!", finished: false },
+    { id: uuid(), task: "Crie a sua tarefa!", finished: true },
   ]);
   const [input, setInput] = useState<string>("");
   const [isOpen, setOpen] = useState<boolean>(false);
@@ -138,6 +138,7 @@ export default function Home() {
               autoComplete="off"
               placeholder="O que tenho que fazer..."
             />
+            
             <button
               onClick={addNewTask}
               className="cursor-pointer sm:hidden flex bg-slate-700 shadow-4xl rounded-[16px] drop-shadow-lg text-white h-14 w-[95%] justify-center items-center"
@@ -150,7 +151,9 @@ export default function Home() {
                 alt=""
                 unoptimized
               />
-            </button>
+            </button> 
+            : 
+            
           </div>
         </div>
       )}
