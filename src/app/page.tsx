@@ -5,7 +5,9 @@ import { v4 as uuid } from "uuid";
 import { Item } from "@/utils";
 
 export default function Home() {
-  const [tasks, setTask] = useState<Item[]>([]);
+  const [tasks, setTask] = useState<Item[]>([
+    { id: uuid(), task: "Crie a sua tarefa!", finished: false },
+  ]);
   const [input, setInput] = useState<string>("");
   const [isOpen, setOpen] = useState<boolean>(false);
 
@@ -32,7 +34,7 @@ export default function Home() {
         <input
           onChange={(e) => setInput(e.currentTarget.value)}
           type="text"
-          className="sm:pl-9 px-5 min-w-[90%] sm:min-w-[20%] hidden sm:inline-block sm:max-w-[100%] max-w-[95%] sm:w-96 outline-none mx-auto sm:mx-0 h-14 bg-slate-700 shadow-3xl rounded-[16px]"
+          className="sm:pl-6 px-5 min-w-[90%] sm:min-w-[20%] hidden sm:inline-block sm:max-w-[100%] max-w-[95%] sm:w-96 outline-none mx-auto sm:mx-0 h-14 bg-slate-700 shadow-3xl rounded-[16px]"
           style={{ color: "rgba(148, 173, 207, 1)" }}
           autoComplete="off"
           placeholder="O que tenho que fazer..."
@@ -51,7 +53,16 @@ export default function Home() {
           />
         </button>
       </div>
-      <div className="grid grid-cols-1 sm:grid-cols-[repeat(auto-fit,minmax(440px,1fr))] w-full h-auto py-11 sm:py-24 px-0 sm:px-4 gap-7">
+      <p
+        className="flex sm:hidden text-2xl font-semibold mt-8"
+        style={{ color: "#94ADCF" }}
+      >
+        Lista de Tarefas
+      </p>
+      <div
+        className="grid grid-cols-1 sm:grid-cols-[repeat(auto-fit,minmax(440px,1fr))] w-full h-auto py-11 sm:py-24 px-0 sm:px-4 gap-7"
+        style={{ display: isOpen ? "none" : "grid" }}
+      >
         {tasks.map((task) => (
           <div
             className="flex items-center flex-row justify-between min-w-[90%] sm:min-w-[20%] sm:max-w-[100%] max-w-[95%] w-80 sm:w-[28.063rem] mx-auto h-14 px-[1.125rem] sm:px-6 bg-slate-700 shadow-4xl rounded-[16px] drop-shadow-lg"
@@ -117,7 +128,7 @@ export default function Home() {
         )}
       </button>
       {isOpen && (
-        <div className="w-full h-full flex sm:hidden justify-center items-center">
+        <div className="w-[100%] h-[100%] flex sm:hidden justify-center items-center">
           <div className="bg-slate-700 transition-all fixed top-[33%] items-center drop-shadow-lg w-[93%] h-56 flex flex-col justify-evenly sm:hidden rounded-[16px] shadow-4xl">
             <input
               onChange={(e) => setInput(e.currentTarget.value)}
