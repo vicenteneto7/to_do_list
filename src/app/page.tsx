@@ -20,6 +20,7 @@ export default function Home() {
       return;
     }
     setTask([...tasks, newList]);
+    setInput('')
 
     const Toast = Swal.mixin({
       toast: true,
@@ -64,7 +65,7 @@ export default function Home() {
         />
         <button
           onClick={addNewTask}
-          className="cursor-pointer hidden sm:flex mx-auto sm:mx-0 bg-slate-700 shadow-4xl transition-colors hover:bg-slate-600 active:bg-slate-500 rounded-[16px] drop-shadow-lg text-white h-14 w-32 justify-center items-center"
+          className="cursor-pointer hidden sm:flex mx-auto sm:mx-0 bg-slate-700 shadow-4xl transition-colors hover:bg-slate-600/50 active:bg-slate-500/50 rounded-[16px] drop-shadow-lg text-white h-14 w-32 justify-center items-center"
         >
           Adicionar
           <Image
@@ -166,7 +167,7 @@ export default function Home() {
             />
             <button
               onClick={addNewTask}
-              className="cursor-pointer sm:hidden flex outline-none transition-all bg-slate-700 active:bg-slate-600 shadow-4xl rounded-[16px] drop-shadow-lg h-14 w-[95%] justify-center items-center"
+              className="cursor-pointer sm:hidden flex outline-none transition-all bg-slate-700 hover:bg-slate-600/50 active:bg-slate-500/50 shadow-4xl rounded-[16px] drop-shadow-lg h-14 w-[95%] justify-center items-center"
               style={{ color: "#94ADCF" }}
             >
               Adicionar
