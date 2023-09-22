@@ -15,7 +15,12 @@ export default function Home() {
 
   const addNewTask = () => {
     const newList: Item = { id: uuid(), task: input, finished: false };
+    if (input == "") {
+      Swal.fire("Atenção", "Digite uma tarefa!", "warning");
+      return;
+    }
     setTask([...tasks, newList]);
+
     const Toast = Swal.mixin({
       toast: true,
       position: "top-end",
@@ -55,6 +60,7 @@ export default function Home() {
           style={{ color: "rgba(148, 173, 207, 1)" }}
           autoComplete="off"
           placeholder="O que tenho que fazer..."
+          maxLength={45}
         />
         <button
           onClick={addNewTask}
@@ -156,10 +162,11 @@ export default function Home() {
               style={{ color: "#94ADCF" }}
               autoComplete="off"
               placeholder="O que tenho que fazer..."
+              maxLength={35}
             />
             <button
               onClick={addNewTask}
-              className="cursor-pointer sm:hidden flex outline-none bg-slate-700 active:bg-slate-600 shadow-4xl rounded-[16px] drop-shadow-lg h-14 w-[95%] justify-center items-center"
+              className="cursor-pointer sm:hidden flex outline-none transition-all bg-slate-700 active:bg-slate-600 shadow-4xl rounded-[16px] drop-shadow-lg h-14 w-[95%] justify-center items-center"
               style={{ color: "#94ADCF" }}
             >
               Adicionar
